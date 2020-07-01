@@ -1,8 +1,10 @@
-# html-builder
+# html-build
 
 传统 html 站点打包工具
 
 解决传统 html 站点，处理利用强缓存不便利的问题
+
+## 解决方案
 
 充分利用强缓存
 
@@ -12,3 +14,15 @@
    - 将静态资源上传到 cdn
    - 替换静态文件中引用的对应资源
    - 发布
+
+## 使用
+
+安装后，项目根目录配置cdn 配置，qnConfig.js, 即可自动打包处理
+
+```bash
+npm i -g @deepjs/html-build
+
+html-build ~/html/xxx
+# or
+hb ~/html/xxx
+```
