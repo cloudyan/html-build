@@ -1,0 +1,36 @@
+{
+  "name": "@deepjs/html-build",
+  "version": "0.0.1",
+  "description": "传统html 站点编译发布",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudyan/html-build.git"
+  },
+  "scripts": {
+    "dev": "./node_modules/.bin/gulp",
+    "build": "./node_modules/.bin/gulp build",
+    "deploy": "npm run build && npm run deployOnly",
+    "deployOnly": "npx gh-pages -d dist --message $(git symbolic-ref --short -q HEAD)-$(git rev-parse --short HEAD)"
+  },
+  "keywords": [],
+  "author": "cloudyan",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
+    "gulp": "3.9.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-md5plus": "^2.0.0",
+    "gulp-qndn": "0.0.4",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-shell": "^0.6.5",
+    "low": "0.0.1",
+    "lowdb": "^1.0.0",
+    "pump": "^3.0.0",
+    "run-sequence": "^2.2.1",
+    "yargs": "^12.0.5"
+  }
+}
