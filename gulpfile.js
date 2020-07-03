@@ -125,19 +125,20 @@ const uploadQn = function uploadQn(cb){
 gulp.task('qn', uploadQn);
 
 
-var regHtml = / src="\.\.\/\.\.\/img\//g
-var regCss = /url\("\.\.\/img\//g
-var regJs = /'.\.\/img\//g
+// var regHtml = / src="\.\.\/\.\.\/img\//g
+// var regCss = /url\("\.\.\/img\//g
+// var regJs = /'.\.\/img\//g
 const replaceRemote = function replaceRemote(cb){
   pump([
     gulp.src(paths.quoteSrc),
     // html 中
-    $.replace('<link rel="stylesheet" href="css', `<link rel="stylesheet" href="${qnOptions.origin}yz/css`),
-    $.replace('<script src="js', `<script src="${qnOptions.origin}yz/js`),
+    $.replace('<link rel="stylesheet" href="css/', `<link rel="stylesheet" href="${qnOptions.origin}yz/css/`),
+    $.replace('<script src="js/', `<script src="${qnOptions.origin}yz/js/`),
     // css 中
-    $.replace(regCss, `url("${qnOptions.origin}yz/`),
+    $.replace('url("../img/', `url("${qnOptions.origin}yz/img/`),
+    $.replace('url("../fonts/', `url("${qnOptions.origin}yz/fonts/`),
     // js 中
-    $.replace(regJs, `'${qnOptions.origin}yz/`),
+    $.replace('../img/', `'${qnOptions.origin}yz/img/`),
     gulp.dest(function(file) {
       return file.base;
     }),
